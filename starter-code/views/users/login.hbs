@@ -1,0 +1,42 @@
+<div class="jumbotron mt-4">
+    {{#if err}}
+    <div class="err form col-md-6 m-auto">
+        <form action="/users/login" method="POST">
+            <h1><i class="fas fa-sign-in-alt mr-3" style="color:#00b7ff;"></i>Login</h1>
+            <span class="err-color">{{err}}</span>
+
+            <label class="mb-0 mt-2" for="email-input">Email</label>
+            <input type="text" id="email-input" name="email" placeholder="email">
+
+            <label class="mb-0 mt-2" for="password-input">Password</label>
+            <input type="password" id="password-input" name="password" placeholder="**********">
+            <button class="btn btn-primary mt-3 mb-2" type="submit">Sign in</button>
+
+            <p>
+                Don't have an account?
+                <a href="/users/signup">Sign up</a>
+            </p>
+        </form>
+    </div>
+    {{else}}
+    <div class="form col-md-6 m-auto">
+        <form action="/users/login" method="POST">
+            <h1><i class="fas fa-sign-in-alt mr-3" style="color:#00b7ff;"></i>Login</h1>
+            {{#if message}}
+            <span class="err-color">{{message}}</span>
+            {{/if}}
+            <label class="mb-0 mt-2" for="username-input">Username</label>
+            <input type="text" id="username-input" name="username" placeholder="username">
+
+            <label class="mb-0 mt-2" for="password-input">Password</label>
+            <input type="password" id="password-input" name="password" placeholder="**********">
+            <button class="btn btn-primary mt-3 mb-2" type="submit">Sign in</button>
+
+            <p>
+                Don't have an account?
+                <a href="/users/signup">Sign up</a>
+            </p>
+        </form>
+    </div>
+    {{/if}}
+</div>
